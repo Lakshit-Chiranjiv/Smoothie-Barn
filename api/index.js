@@ -2,6 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from 'dotenv'
+import authRoutes from './routes/authRoutes.js'
+import smoothieRoutes from './routes/smoothieRoutes.js'
+
 const app = express();
 
 dotenv.config()
@@ -18,11 +21,13 @@ mongoose.connect(process.env.MONGODB_URI)
 const db = mongoose.connection;
 
 app.get('/',(req,res)=>{
-    res.send("<h1>Hello from Smoothies API</h1><h3><a href='/pokemon'>Head here!!</a></h3>");
+    res.send('smoothie barn api')
 })
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-// app.use('/pokemon',pokemonRouter);
+
+app.use('/smoothiebarn',authRoutes)
+app.use('/smoothiebarn',smoothieRoutes)
 
 
 
