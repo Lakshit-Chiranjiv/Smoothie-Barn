@@ -24,6 +24,12 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+userSchema.pre('save',function(next){
+    //this keyword gives us the access to the req.body before it is saved to the db, as we will use it in pre hook and we can't use arrow func as they don't give us the pre hook
+    console.log('user to be created')
+    console.log(this)
+})
+
 const UserModel = mongoose.model('user',userSchema)
 
 export default UserModel;
