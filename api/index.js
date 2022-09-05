@@ -4,7 +4,6 @@ import cors from "cors";
 import dotenv from 'dotenv'
 import authRoutes from './routes/authRoutes.js'
 import smoothieRoutes from './routes/smoothieRoutes.js'
-import SmoothieModel from "./models/smoothieModel.js";
 
 const app = express();
 
