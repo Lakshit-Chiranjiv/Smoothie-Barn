@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import pkg from 'validator'
+import bcrypt from 'bcrypt'
 
 const { isEmail } = pkg
 
@@ -24,10 +25,12 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-userSchema.pre('save',function(next){
+userSchema.pre('save',async function(next){
     //this keyword gives us the access to the req.body before it is saved to the db, as we will use it in pre hook and we can't use arrow func as they don't give us the pre hook
     console.log('user to be created')
     console.log(this)
+    const salt = await bcrypt.genSalt()
+    this.password = await bcrypt.hash(this.password,salt)
     next()
 })
 
