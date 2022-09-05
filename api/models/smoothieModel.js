@@ -12,10 +12,6 @@ const smoothieSchema = new mongoose.Schema({
     price: {
         type: Number,
         min: [0, 'price can\'t be lower than zero']
-    },
-    image: {
-        data: Buffer,
-        contentType: String
     }
 },{timestamps: true})
 
