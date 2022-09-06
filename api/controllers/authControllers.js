@@ -1,5 +1,6 @@
 import UserModel from "../models/userModel.js"
 import jwt from 'jsonwebtoken'
+import cookieParser from 'cookie-parser'
 
 const handleErrors = (error) => {
     let errors = {
@@ -53,7 +54,10 @@ export const signupUser = async(req,res) => {
         const user = await UserModel.create({
             email,username,password
         })
-        res.status(201).json(user)
+
+        const token = createToken(user._id)
+        res.cookie('jwt',token,{ httpOnly: true, maxAge: maxTokenAge * 1000 })
+        res.status(201).json({ user: user._id })
     } catch (error) {
         const errorsObj = handleErrors(error)
         res.status(400).json(errorsObj)
