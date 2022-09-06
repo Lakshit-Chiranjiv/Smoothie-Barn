@@ -1,4 +1,5 @@
 import UserModel from "../models/userModel.js"
+import jwt from 'jsonwebtoken'
 
 const handleErrors = (error) => {
     let errors = {
@@ -27,6 +28,14 @@ const handleErrors = (error) => {
     }
 
     return errors
+}
+
+const maxTokenAge = 3 * 24 * 60 * 60;
+
+const createToken = (id) => {
+    return jwt.sign({ id },'lakshit secret key', {
+        expiresIn: maxTokenAge
+    })
 }
 
 export const getSignupPage = (req,res) => {
