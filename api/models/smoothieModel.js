@@ -12,6 +12,10 @@ const smoothieSchema = new mongoose.Schema({
     price: {
         type: Number,
         min: [0, 'price can\'t be lower than zero']
+    },
+    createdBy: {
+        type: String,
+        required: [true, 'Must provide the creator username']
     }
 },{timestamps: true})
 
