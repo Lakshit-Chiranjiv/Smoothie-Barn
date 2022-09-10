@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import UserModel from '../models/userModel.js'
 
-const userCheck = (req,res,next) => {
+const userCheck = async(req,res,next) => {
     const token = req.cookies.jwt
 
     if(token){
@@ -11,7 +11,7 @@ const userCheck = (req,res,next) => {
                 next()
             }
             else{
-                const user = UserModel.findById(decodedToken.id)
+                const user = await UserModel.findById(decodedToken.id)
                 res.locals.user = user
                 next()
             }
