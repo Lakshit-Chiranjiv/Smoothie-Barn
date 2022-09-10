@@ -1,4 +1,4 @@
-
+//also send res.locals.user from all the get requests
 
 export const getAllSmoothies = (req,res) => {
 
