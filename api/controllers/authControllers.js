@@ -48,11 +48,11 @@ const createToken = (id) => {
 }
 
 export const getSignupPage = (req,res) => {
-
+    res.json(res.locals.user)
 }
 
 export const getLoginPage = (req,res) => {
-
+    res.json(res.locals.user)
 }
 
 export const signupUser = async(req,res) => {
