@@ -6,6 +6,7 @@ import authRoutes from './routes/authRoutes.js'
 import smoothieRoutes from './routes/smoothieRoutes.js'
 import cookieParser from 'cookie-parser'
 import authCheck from "./middleware/authMiddleware.js";
+import userCheck from "./middleware/userMiddleware.js";
 
 const app = express();
 
@@ -26,7 +27,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cookieParser())
 
-
+app.get('*',userCheck)
 app.get('/',(req,res)=>{
     res.send('smoothie barn api')
 })
