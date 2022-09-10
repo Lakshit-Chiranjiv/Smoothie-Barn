@@ -81,6 +81,13 @@ export const addSmoothie = async(req,res) => {
 
 }
 
-export const deleteSmoothie = (req,res) => {
+export const deleteSmoothie = async(req,res) => {
+    const { id } = req.params;
 
+    try {
+        await SmoothieModel.findByIdAndDelete(id);
+        res.json({redirectUrl: '/'})
+    } catch (error) {
+        res.json({message: "Could not delete smoothie"})
+    }
 }
