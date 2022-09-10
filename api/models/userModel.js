@@ -40,6 +40,25 @@ userSchema.post('save',(doc,next)=> {
     next()
 })
 
+userSchema.statics.login = async function(email, username, password){
+    //this in this method refers to userModel
+    const user = await this.findOne({ email })
+    if(user){
+        if(username === user.username){
+            const isPasswordCorrect = await bcrypt.compare(password,user.password)
+            if(isPasswordCorrect){
+                return user
+            }
+            else
+                throw Error('Wrong Password')
+        }
+        else
+            throw Error('Incorrect Username')
+    }
+    else
+        throw Error('Unregistered Email')
+}
+
 const UserModel = mongoose.model('user',userSchema)
 
 export default UserModel;
