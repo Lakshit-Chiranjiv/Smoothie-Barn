@@ -20,8 +20,20 @@ export const getAllUserSmoothies = (req,res) => {
 
 }
 
-export const getSingleSmoothie = (req,res) => {
-
+export const getSingleSmoothie = async(req,res) => {
+    const { id } = req.params;
+    try {
+        const smoothie = await SmoothieModel.findById(id);
+        if(!smoothie) throw Error('could not find pokemon');
+        const user = res.locals.user
+        const sendRes = {
+            smoothie: smoothie,
+            user: user
+        }
+        res.status(200).json(sendRes);
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
 }
 
 export const addSmoothie = (req,res) => {
