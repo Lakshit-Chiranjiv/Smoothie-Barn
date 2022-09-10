@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from 'dotenv'
 import authRoutes from './routes/authRoutes.js'
 import smoothieRoutes from './routes/smoothieRoutes.js'
+import cookieParser from 'cookie-parser'
 
 const app = express();
 
@@ -22,6 +23,8 @@ const db = mongoose.connection;
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cookieParser())
+
 
 app.get('/',(req,res)=>{
     res.send('smoothie barn api')

@@ -1,6 +1,5 @@
 import UserModel from "../models/userModel.js"
 import jwt from 'jsonwebtoken'
-import cookieParser from 'cookie-parser'
 
 const handleErrors = (error) => {
     let errors = {
