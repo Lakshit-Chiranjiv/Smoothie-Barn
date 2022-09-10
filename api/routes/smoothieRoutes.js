@@ -1,5 +1,5 @@
 import express from 'express'
-import { addSmoothie, deleteSmoothie, getAllSmoothies, getAllUserSmoothies, getSingleSmoothie } from '../controllers/smoothieControllers'
+import { addSmoothie, deleteSmoothie, getAllSmoothies, getAllUserSmoothies, getSingleSmoothie } from '../controllers/smoothieControllers.js'
 
 const router = express.Router()
 
