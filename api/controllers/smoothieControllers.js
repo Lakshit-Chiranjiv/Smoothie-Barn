@@ -52,7 +52,32 @@ export const getSingleSmoothie = async(req,res) => {
     }
 }
 
-export const addSmoothie = (req,res) => {
+export const addSmoothie = async(req,res) => {
+    const { username } = req.params
+    const { name,steps,price } = req.body
+
+    const user = await UserModel.findOne({ username })
+
+    if(user){
+        const addObj = {
+            name,
+            steps,
+            price,
+            createdBy: username
+        }
+    
+        try {
+            const smoothie = new SmoothieModel(addObj)
+            const result = await smoothie.save()
+            res.status(201).json(result)
+        } catch (error) {
+            res.status(400).json({message: "Could not add Smoothie"})
+        }
+    }
+    else{
+        res.status(400).json({message: "No such user with username"})
+    }
+
 
 }
 
