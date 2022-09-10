@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/authRoutes.js'
 import smoothieRoutes from './routes/smoothieRoutes.js'
 import cookieParser from 'cookie-parser'
+import authCheck from "./middleware/authMiddleware.js";
 
 const app = express();
 
@@ -31,7 +32,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/smoothiebarn',authRoutes)
-app.use('/smoothiebarn',smoothieRoutes)
+app.use('/smoothiebarn',authCheck,smoothieRoutes)
 
 
 
