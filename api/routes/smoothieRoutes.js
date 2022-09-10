@@ -10,7 +10,7 @@ router.get('/smoothies',getAllSmoothies)
 router.get('/:userid/smoothies',getAllUserSmoothies)
 
 //add new smoothie
-router.post('/addsmoothie',addSmoothie)
+router.post('/:username/addsmoothie',addSmoothie)
 
 //get single smoothie data
 router.get('/smoothie/:id',getSingleSmoothie)
