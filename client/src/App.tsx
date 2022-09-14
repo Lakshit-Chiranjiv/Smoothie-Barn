@@ -1,14 +1,15 @@
 import './App.css'
 import { useState } from 'react';
-import { Grid } from '@mantine/core';
+import { Grid, Group } from '@mantine/core';
 import HeroPage from './components/HeroPage';
+import Header from './components/Header';
 
 export default function App() {
   return (
     <>
       <Grid grow>
         <Grid.Col>
-          Header
+            <Header/>
         </Grid.Col>
       </Grid>
       <Grid grow>
