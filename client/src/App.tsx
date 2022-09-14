@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Grid, Group } from '@mantine/core';
 import HeroPage from './components/HeroPage';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
       </Grid>
       <Grid grow>
         <Grid.Col>
-          Footer
+          <Footer/>
         </Grid.Col>
       </Grid>
     </>
