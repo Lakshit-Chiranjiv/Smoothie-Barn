@@ -4,7 +4,7 @@ import { IconActivity,IconChevronRight } from '@tabler/icons'
 
 const NavbarLink = () => {
   return (
-    <Container>
+    <Container mb={20}>
       <NavLink
         className='navlink'
         label="Active subtle"
