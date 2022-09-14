@@ -15,6 +15,7 @@
 
 .sidenav,.mainarea{
   height: 100vh;
+  box-sizing: border-box;
   margin: 20px auto;
 }
 
