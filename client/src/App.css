@@ -18,6 +18,10 @@
   margin: 20px auto;
 }
 
+.navlink{
+  border-radius: 4px;
+}
+
 .hero{
   background-color: #ffabfe;
 }
