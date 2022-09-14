@@ -1,25 +1,29 @@
 import './App.css'
-import { Container,Grid,AppShell,Navbar,Header } from '@mantine/core'
+import { useState } from 'react';
+import { Grid } from '@mantine/core';
+import HeroPage from './components/HeroPage';
 
-function App() {
-
+export default function App() {
   return (
-    <AppShell
-      padding="md"
-      navbar={<Navbar width={{ base: 300 }} height={500} p="xs">{/* Navbar content */}</Navbar>}
-      header={<Header height={60} p="xs">{/* Header content */}</Header>}
-      styles={(theme) => ({
-        main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
-      })}
-    >
-      <Container>
-        {/* <Grid>
-          
-        </Grid> */}
-        <h1>Hello Site</h1>
-      </Container>
-    </AppShell>
-  )
+    <>
+      <Grid grow>
+        <Grid.Col>
+          Header
+        </Grid.Col>
+      </Grid>
+      <Grid grow>
+        <Grid.Col span={4}>
+          Side Nav
+        </Grid.Col>
+        <Grid.Col span={8}>
+          Main Area
+        </Grid.Col>
+      </Grid>
+      <Grid grow>
+        <Grid.Col>
+          Footer
+        </Grid.Col>
+      </Grid>
+    </>
+  );
 }
-
-export default App
