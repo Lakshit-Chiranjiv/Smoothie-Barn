@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Container,Group,Image,Title,NavLink } from '@mantine/core'
-import { IconActivity,IconChevronRight } from '@tabler/icons'
+import { IconActivity,IconChevronRight, TablerIconProps } from '@tabler/icons'
+
+type NavbarLinkProps = {
+  linkLabel: string,
+  active: boolean,
+  linkIcon: FC<TablerIconProps>,
+}
+// {linkLabel,active,linkIcon}: NavbarLinkProps
 
 const NavbarLink = () => {
   return (
