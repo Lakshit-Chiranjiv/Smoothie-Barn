@@ -13,7 +13,7 @@ export function CustomFonts() {
         {
           '@font-face': {
             fontFamily: 'Poppins',
-            src: `url('${bold}') format("ttf")`,
+            src: `url('${bold}') format("woff2")`,
             fontWeight: 700,
             fontStyle: 'normal',
           },
@@ -21,7 +21,7 @@ export function CustomFonts() {
         {
           '@font-face': {
             fontFamily: 'Poppins',
-            src: `url('${semibold}') format("ttf")`,
+            src: `url('${semibold}') format("woff2")`,
             fontWeight: 600,
             fontStyle: 'normal',
           },
@@ -29,7 +29,7 @@ export function CustomFonts() {
         {
           '@font-face': {
             fontFamily: 'Poppins',
-            src: `url('${medium}') format("ttf")`,
+            src: `url('${medium}') format("woff2")`,
             fontWeight: 500,
             fontStyle: 'normal',
           },
@@ -37,7 +37,7 @@ export function CustomFonts() {
         {
           '@font-face': {
             fontFamily: 'Poppins',
-            src: `url('${regular}') format("ttf")`,
+            src: `url('${regular}') format("woff2")`,
             fontWeight: 400,
             fontStyle: 'normal',
           },
@@ -45,7 +45,7 @@ export function CustomFonts() {
         {
           '@font-face': {
             fontFamily: 'Poppins',
-            src: `url('${black}') format("ttf")`,
+            src: `url('${black}') format("woff2")`,
             fontWeight: 300,
             fontStyle: 'normal',
           },
@@ -53,7 +53,7 @@ export function CustomFonts() {
         {
           '@font-face': {
             fontFamily: 'Poppins',
-            src: `url('${light}') format("ttf")`,
+            src: `url('${light}') format("woff2")`,
             fontWeight: 200,
             fontStyle: 'normal',
           },
