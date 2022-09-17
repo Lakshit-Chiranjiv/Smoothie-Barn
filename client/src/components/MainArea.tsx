@@ -1,10 +1,11 @@
 import { Container } from '@mantine/core'
 import React from 'react'
+import HeroPage from './HeroPage'
 
 const MainArea = () => {
   return (
-    <Container>
-        
+    <Container className='mainarea'>
+        <HeroPage/>
     </Container>
   )
 }
