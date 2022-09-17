@@ -1,4 +1,4 @@
-import { Container,Navbar } from '@mantine/core'
+import { Container } from '@mantine/core'
 import NavbarLink from './NavbarLink'
 
 const SideNav = () => {
