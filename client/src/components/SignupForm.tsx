@@ -1,7 +1,7 @@
 import { Container, PasswordInput, TextInput } from '@mantine/core'
 const SignupForm = () => {
   return (
-    <Container className='signupform'>
+    <Container className='signupform' p={40}>
         <TextInput
             placeholder="Your username"
             label="Username"
