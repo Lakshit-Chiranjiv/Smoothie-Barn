@@ -1,7 +1,10 @@
-import { Container, PasswordInput, TextInput,Button } from '@mantine/core'
+import { Container, PasswordInput, TextInput,Button, Title, Group } from '@mantine/core'
 const SignupForm = () => {
   return (
     <Container className='signupform' p={40}>
+        <Group position='center'>
+          <Title order={2} sx={{ fontFamily: 'Poppins, sans-serif' }} mb={40}>Sign Up</Title>
+        </Group>
         <TextInput
             placeholder="Your username"
             label="Username"
