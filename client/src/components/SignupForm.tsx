@@ -1,4 +1,4 @@
-import { Container, PasswordInput, TextInput } from '@mantine/core'
+import { Container, PasswordInput, TextInput,Button } from '@mantine/core'
 const SignupForm = () => {
   return (
     <Container className='signupform' p={40}>
@@ -21,6 +21,7 @@ const SignupForm = () => {
             withAsterisk
             mb={40}
         />
+        <Button fullWidth variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>Sign Up</Button>
     </Container>
   )
 }
