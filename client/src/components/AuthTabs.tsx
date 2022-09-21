@@ -4,8 +4,8 @@ import AuthForm from './AuthForm';
 
 function AuthTabs() {
   return (
-    <Tabs variant='pills' defaultValue="signup" py={20}>
-      <Tabs.List px={40}>
+    <Tabs variant='pills' defaultValue="signup" py={20} color='indigo.4'>
+      <Tabs.List px={40} position='center'>
         <Tabs.Tab value="signup" icon={<IconUserPlus size={14} />}>Sign Up</Tabs.Tab>
         <Tabs.Tab value="login" icon={<IconUserCircle size={14} />}>Login</Tabs.Tab>
       </Tabs.List>
