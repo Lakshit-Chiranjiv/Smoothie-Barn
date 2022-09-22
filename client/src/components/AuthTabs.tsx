@@ -6,8 +6,8 @@ function AuthTabs() {
   return (
     <Tabs variant='pills' defaultValue="signup" py={20} color='indigo.4'>
       <Tabs.List px={40} position='center'>
-        <Tabs.Tab value="signup" icon={<IconUserPlus size={14} />}>Sign Up</Tabs.Tab>
-        <Tabs.Tab value="login" icon={<IconUserCircle size={14} />}>Login</Tabs.Tab>
+        <Tabs.Tab value="signup" icon={<IconUserPlus size={16} />}>Sign Up</Tabs.Tab>
+        <Tabs.Tab value="login" icon={<IconUserCircle size={22} />}>Login</Tabs.Tab>
       </Tabs.List>
 
       <Tabs.Panel value="signup" pt="xs">
