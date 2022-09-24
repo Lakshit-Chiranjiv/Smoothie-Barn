@@ -5,6 +5,14 @@
   font-family: 'Lato', sans-serif;
 }
 
+.mainarea{
+  overflow-y: auto;
+}
+
+.mainarea::-webkit-scrollbar { 
+  display: none; 
+}
+
 .header,.footer,.mainarea{
   background-color: #D979B5;
   border-radius: 10px;
