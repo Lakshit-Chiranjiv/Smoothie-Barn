@@ -12,7 +12,7 @@ const HeroPage = () => {
           my={20}
         />
       </div>
-      <Title order={1} sx={{ fontFamily: 'Poppins, sans-serif' }} my={20}>Welcome to The Smoothie Barn</Title>
+      <Title order={1} sx={{ fontFamily: 'Poppins, sans-serif',textAlign: 'center' }} my={20}>Welcome to The Smoothie Barn</Title>
 
       <Group position='center' my={40}>
         <div style={{ width: '200px' }}>
