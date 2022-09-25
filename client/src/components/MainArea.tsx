@@ -1,13 +1,20 @@
 import { Container } from '@mantine/core'
-import React from 'react'
+import React, { useState } from 'react'
+import AddSmoothie from './AddSmoothie'
 import AuthTabs from './AuthTabs'
 import HeroPage from './HeroPage'
+import SmoothiesList from './SmoothiesList'
 
 const MainArea = () => {
+
+  const [addModalOpened,setAddModalOpened] = useState(false)
+
   return (
     <Container className='mainarea'>
         {/* <HeroPage/> */}
-        <AuthTabs/>
+        {/* <AuthTabs/> */}
+        <SmoothiesList/>
+        <AddSmoothie addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
     </Container>
   )
 }
