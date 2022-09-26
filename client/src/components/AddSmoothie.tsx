@@ -8,7 +8,7 @@ type AddSmoothieProps = {
 
 const AddSmoothie = ({addModalOpened,setAddModalOpened}: AddSmoothieProps) => {
   return (
-    <Modal withCloseButton={addModalOpened} opened={true} onClose={() => setAddModalOpened(false)}>
+    <Modal withCloseButton={false} opened={addModalOpened} onClose={() => setAddModalOpened(false)}>
       <Title order={2} mb={30}>Add a Smoothie</Title>
       <TextInput
         placeholder="Smoothie name"
