@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import AddSmoothie from './AddSmoothie'
 import AuthTabs from './AuthTabs'
 import HeroPage from './HeroPage'
+import SmoothieDetail from './SmoothieDetail'
 import SmoothiesList from './SmoothiesList'
 
 const MainArea = () => {
@@ -13,7 +14,8 @@ const MainArea = () => {
     <Container className='mainarea'>
         {/* <HeroPage/> */}
         {/* <AuthTabs/> */}
-        <SmoothiesList/>
+        {/* <SmoothiesList/> */}
+        <SmoothieDetail/>
         <AddSmoothie addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
     </Container>
   )
