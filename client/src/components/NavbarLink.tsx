@@ -1,21 +1,21 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { Container,Group,Image,Title,NavLink } from '@mantine/core'
 import { IconActivity,IconChevronRight, TablerIconProps } from '@tabler/icons'
 
 type NavbarLinkProps = {
   linkLabel: string,
-  active: boolean,
-  linkIcon: FC<TablerIconProps>,
+  active?: boolean,
+  linkIcon: ReactNode,
 }
-// {linkLabel,active,linkIcon}: NavbarLinkProps
 
-const NavbarLink = () => {
+
+const NavbarLink = ({linkLabel,active,linkIcon}: NavbarLinkProps) => {
   return (
     <Container mb={20}>
       <NavLink
         className='navlink'
-        label="Active subtle"
-        icon={<IconActivity size={16} stroke={1.5} />}
+        label={linkLabel}
+        icon={linkIcon}
         rightSection={<IconChevronRight size={12} stroke={1.5} />}
         variant="filled"
         active
