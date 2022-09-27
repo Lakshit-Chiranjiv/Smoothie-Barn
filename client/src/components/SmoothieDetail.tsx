@@ -27,7 +27,10 @@ const SmoothieDetail = () => {
         </List>
       </Container>
 
-      <Button variant="gradient" fullWidth my={24} gradient={{ from: 'green', to: 'blue', deg: 75 }}>Buy Smoothie name for ₹ 800</Button>
+      <Group>
+        <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'orange', to: 'yellow', deg: 75 }}>Back</Button>
+        <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'green', to: 'blue', deg: 75 }}>Buy Smoothie name for ₹ 800</Button>
+      </Group>
     
       <Group position='apart' sx={{ backgroundColor: '#c7fff2', borderRadius: 12 }} mt={64} p={12}>
         <Avatar src={null} alt="Vitaly Rtishchev" color="violet">VR</Avatar>
