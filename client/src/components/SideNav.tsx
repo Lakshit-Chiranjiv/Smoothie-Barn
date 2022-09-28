@@ -1,5 +1,5 @@
 import { Avatar, Container, Group, Title } from '@mantine/core'
-import { IconCirclePlus, IconGlass, IconHome, IconLogin, IconLogout, IconUserPlus } from '@tabler/icons'
+import { IconCirclePlus, IconGlass, IconHome, IconLogin, IconLogout, IconQuestionMark, IconUserPlus } from '@tabler/icons'
 import NavbarLink from './NavbarLink'
 
 const SideNav = () => {
@@ -13,6 +13,7 @@ const SideNav = () => {
         <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>}/>
         <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>}/>
         <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>}/>
+        <NavbarLink linkLabel='About Me' linkIcon={<IconQuestionMark/>}/>
       </Container>
 
       <Group position='apart' color='blue' style={{ width: '90%', position: 'absolute', bottom: 30, backgroundColor: '#f8ceff', borderRadius: 10 }} p={12}>
