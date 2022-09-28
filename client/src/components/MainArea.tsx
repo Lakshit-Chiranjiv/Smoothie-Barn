@@ -12,10 +12,10 @@ const MainArea = () => {
 
   return (
     <Container className='mainarea'>
-        {/* <HeroPage/> */}
+        <HeroPage/>
         {/* <AuthTabs/> */}
         {/* <SmoothiesList/> */}
-        <SmoothieDetail/>
+        {/* <SmoothieDetail/> */}
         <AddSmoothie addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
     </Container>
   )
