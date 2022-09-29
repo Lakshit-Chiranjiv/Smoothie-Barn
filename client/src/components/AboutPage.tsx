@@ -17,8 +17,8 @@ const AboutPage = () => {
       </Text>
 
       <Group position='apart'>
-        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'blue', to: 'indigo', deg: 60 }}><IconBrandTwitter/></Button>
-        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'purple', to: 'blue', deg: 60 }}><IconBrandLinkedin/></Button>
+        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'blue', to: '#79a9d9', deg: 60 }}><IconBrandTwitter/></Button>
+        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: '#0071AE', to: 'blue', deg: 60 }}><IconBrandLinkedin/></Button>
         <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'black', to: 'gray', deg: 60 }}><IconBrandGithub/></Button>
       </Group>
     </Container>
