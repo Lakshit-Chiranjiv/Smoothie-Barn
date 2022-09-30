@@ -17,13 +17,13 @@ const MainArea = () => {
   return (
     <Container className='mainarea'>
       <Routes>
+        <Route path='*' element={<NotFound/>}/>
         <Route path='/' element={<HeroPage/>}/>
         <Route path='/signup' element={<AuthTabs/>}/>
         <Route path='/login' element={<AuthTabs/>}/>
         <Route path='/smoothies' element={<SmoothiesList/>}/>
         <Route path='/smoothies/:id' element={<SmoothieDetail/>}/>
         <Route path='/about' element={<AboutPage/>}/>
-        <Route path='*' element={<NotFound/>}/>
       </Routes>
         <AddSmoothie addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
     </Container>
