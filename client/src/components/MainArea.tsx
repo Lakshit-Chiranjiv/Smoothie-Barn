@@ -4,6 +4,7 @@ import AboutPage from './AboutPage'
 import AddSmoothie from './AddSmoothie'
 import AuthTabs from './AuthTabs'
 import HeroPage from './HeroPage'
+import NotFound from './NotFound'
 import SmoothieDetail from './SmoothieDetail'
 import SmoothiesList from './SmoothiesList'
 
@@ -17,7 +18,8 @@ const MainArea = () => {
         {/* <AuthTabs/> */}
         {/* <SmoothiesList/> */}
         {/* <SmoothieDetail/> */}
-        <AboutPage/>
+        {/* <AboutPage/> */}
+        <NotFound/>
         <AddSmoothie addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
     </Container>
   )
