@@ -1,5 +1,5 @@
 import { Button, Container, Divider, Group, Text, Title } from '@mantine/core'
-import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter, IconMail } from '@tabler/icons'
+import { IconBrandCss3, IconBrandFigma, IconBrandFirebase, IconBrandGithub, IconBrandHtml5, IconBrandJavascript, IconBrandLinkedin, IconBrandNextjs, IconBrandPython, IconBrandReact, IconBrandTailwind, IconBrandTwitter, IconCurrencyEthereum, IconMail } from '@tabler/icons'
 import React from 'react'
 
 const AboutPage = () => {
@@ -13,10 +13,25 @@ const AboutPage = () => {
       <Divider my="sm" />
 
       <Text my={32}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores delectus nihil illum ratione pariatur porro eius, impedit quas nostrum repellat suscipit sunt id vel saepe? Odit id totam nam cupiditate eum possimus quae aspernatur mollitia modi iste? Repellat autem eaque blanditiis inventore vitae mollitia laboriosam omnis facilis sed numquam! Nesciunt laborum non assumenda nobis voluptatem vitae unde perspiciatis eum illum maiores ullam alias perferendis voluptates totam molestiae, amet repellat! Enim?
+        I am Lakshit Chiranjiv Sagar, currently a 3rd year BTech. student, also a Full Stack web and blockchain developer. I have a very keen interest in web development and blockchain development with Javascript as my goto language. For now I am creating some good projects. You can contact me on any of the below given links or on my mail. Always Trying to do Better.✨ 
       </Text>
 
-      <Group position='apart'>
+      <Title order={4} sx={{ fontFamily: 'Poppins, sans-serif' }}>Skills</Title>
+      <Group my={30} position='center'>
+        <Button variant="gradient" gradient={{ from: 'orange', to: '#ff9966', deg: 60 }}><IconBrandHtml5/></Button>
+        <Button variant="gradient" gradient={{ from: 'blue', to: '#0099ff', deg: 60 }}><IconBrandCss3/></Button>
+        <Button variant="gradient" gradient={{ from: 'yellow', to: '#ffff66', deg: 60 }}><IconBrandJavascript/></Button>
+        <Button variant="gradient" gradient={{ from: '#00ffff', to: '#00ccff', deg: 60 }}><IconBrandReact/></Button>
+        <Button variant="gradient" gradient={{ from: 'black', to: 'gray', deg: 60 }}><IconBrandNextjs/></Button>
+        <Button variant="gradient" gradient={{ from: 'blue', to: 'yellow', deg: 60 }}><IconBrandPython/></Button>
+        <Button variant="gradient" gradient={{ from: '#66c2ff', to: '#0099ff', deg: 60 }}><IconBrandTailwind/></Button>
+        <Button variant="gradient" gradient={{ from: 'orange', to: 'yellow', deg: 60 }}><IconBrandFirebase/></Button>
+        <Button variant="gradient" gradient={{ from: 'red', to: 'blue', deg: 60 }}><IconBrandFigma/></Button>
+        <Button variant="gradient" gradient={{ from: 'black', to: 'gray', deg: 60 }}><IconCurrencyEthereum/></Button>
+      </Group>
+
+      <Title order={4} sx={{ fontFamily: 'Poppins, sans-serif' }}>Contact me</Title>
+      <Group position='apart' my={30}>
         <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'blue', to: '#79a9d9', deg: 60 }}><IconBrandTwitter/></Button>
         <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: '#0071AE', to: 'blue', deg: 60 }}><IconBrandLinkedin/></Button>
         <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'black', to: 'gray', deg: 60 }}><IconBrandGithub/></Button>
