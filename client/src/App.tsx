@@ -10,6 +10,7 @@ import MainArea from './components/MainArea';
 export default function App() {
 
   const [addModalOpened,setAddModalOpened] = useState(false)
+  const [authTab,setAuthTab] = useState<'signup' | 'login'>('signup')
 
   return (
     <>
@@ -20,10 +21,10 @@ export default function App() {
       </Grid>
       <Grid grow>
         <Grid.Col span={3}>
-          <SideNav setAddModalOpened={setAddModalOpened}/>
+          <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab}/>
         </Grid.Col>
         <Grid.Col span={9}>
-          <MainArea addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
+          <MainArea addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
         </Grid.Col>
       </Grid>
       <Grid grow>
