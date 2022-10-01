@@ -1,5 +1,4 @@
 import { Container } from '@mantine/core'
-import React, { useState } from 'react'
 import { Route,Routes } from 'react-router-dom'
 import AboutPage from './AboutPage'
 import AddSmoothie from './AddSmoothie'
@@ -9,10 +8,12 @@ import NotFound from './NotFound'
 import SmoothieDetail from './SmoothieDetail'
 import SmoothiesList from './SmoothiesList'
 
+type MainAreaProps = {
+  addModalOpened: boolean,
+  setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const MainArea = () => {
-
-  const [addModalOpened,setAddModalOpened] = useState(false)
+const MainArea = ({addModalOpened,setAddModalOpened}: MainAreaProps) => {
 
   return (
     <Container className='mainarea'>
