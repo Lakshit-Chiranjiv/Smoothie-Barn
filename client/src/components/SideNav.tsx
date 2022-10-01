@@ -3,10 +3,11 @@ import { IconCirclePlus, IconGlass, IconHome, IconLogin, IconLogout, IconQuestio
 import NavbarLink from './NavbarLink'
 
 type SideNavProps = {
-  setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>
+  setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
+  setAuthTab: React.Dispatch<React.SetStateAction<"signup" | "login">>
 }
 
-const SideNav = ({setAddModalOpened}: SideNavProps) => {
+const SideNav = ({setAddModalOpened,setAuthTab}: SideNavProps) => {
   return (
     <Container className='sidenav' py={40} style={{ position: 'relative' }}>
 
@@ -16,8 +17,12 @@ const SideNav = ({setAddModalOpened}: SideNavProps) => {
         <a onClick={()=>setAddModalOpened(true)}>
           <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/'/>
         </a>
-        <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>} path='/signup'/>
-        <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>} path='login'/>
+        <a onClick={()=>setAuthTab('signup')}>
+          <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>} path='/signup'/>
+        </a>
+        <a onClick={()=>setAuthTab('login')}>
+          <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>} path='login'/>
+        </a>
         <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>} path='/'/>
         <NavbarLink linkLabel='About Me' linkIcon={<IconQuestionMark/>} path='/about'/>
       </Container>
