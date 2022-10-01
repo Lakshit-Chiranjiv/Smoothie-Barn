@@ -8,6 +8,9 @@ import SideNav from './components/SideNav';
 import MainArea from './components/MainArea';
 
 export default function App() {
+
+  const [addModalOpened,setAddModalOpened] = useState(false)
+
   return (
     <>
       <Grid grow>
@@ -17,10 +20,10 @@ export default function App() {
       </Grid>
       <Grid grow>
         <Grid.Col span={3}>
-          <SideNav/>
+          <SideNav setAddModalOpened={setAddModalOpened}/>
         </Grid.Col>
         <Grid.Col span={9}>
-          <MainArea/>
+          <MainArea addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
         </Grid.Col>
       </Grid>
       <Grid grow>
