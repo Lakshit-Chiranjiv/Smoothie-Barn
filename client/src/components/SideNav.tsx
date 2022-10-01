@@ -7,13 +7,13 @@ const SideNav = () => {
     <Container className='sidenav' py={40} style={{ position: 'relative' }}>
 
       <Container p={0}>
-        <NavbarLink linkLabel='Home' linkIcon={<IconHome/>}/>
-        <NavbarLink linkLabel='Smoothies' linkIcon={<IconGlass/>}/>
-        <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>}/>
-        <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>}/>
-        <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>}/>
-        <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>}/>
-        <NavbarLink linkLabel='About Me' linkIcon={<IconQuestionMark/>}/>
+        <NavbarLink linkLabel='Home' linkIcon={<IconHome/>} path='/'/>
+        <NavbarLink linkLabel='Smoothies' linkIcon={<IconGlass/>} path='/smoothies'/>
+        <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/'/>
+        <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>} path='/signup'/>
+        <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>} path='login'/>
+        <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>} path='/'/>
+        <NavbarLink linkLabel='About Me' linkIcon={<IconQuestionMark/>} path='/about'/>
       </Container>
 
       <Group position='apart' color='blue' style={{ width: '90%', position: 'absolute', bottom: 30, backgroundColor: '#f8ceff', borderRadius: 10 }} p={12}>
