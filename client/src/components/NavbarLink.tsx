@@ -13,7 +13,7 @@ type NavbarLinkProps = {
 
 const NavbarLink = ({linkLabel,active,linkIcon,path}: NavbarLinkProps) => {
   return (
-    <Link to={path} style={{textDecoration: 'none'}}>
+    <Link to={path} className='link'>
       <NavLink
         className='navlink'
         label={linkLabel}
