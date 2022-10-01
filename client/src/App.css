@@ -36,6 +36,10 @@
   border-radius: 4px;
 }
 
+.link{
+  text-decoration: none;
+}
+
 /* .hero{
   background-color: #ffabfe;
 } */
