@@ -32,9 +32,9 @@ const AboutPage = () => {
 
       <Title order={4} sx={{ fontFamily: 'Poppins, sans-serif' }}>Contact me</Title>
       <Group position='apart' my={30}>
-        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'blue', to: '#79a9d9', deg: 60 }}><IconBrandTwitter/></Button>
-        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: '#0071AE', to: 'blue', deg: 60 }}><IconBrandLinkedin/></Button>
-        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'black', to: 'gray', deg: 60 }}><IconBrandGithub/></Button>
+        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'blue', to: '#79a9d9', deg: 60 }}><IconBrandTwitter/> &nbsp; Twitter</Button>
+        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: '#0071AE', to: 'blue', deg: 60 }}><IconBrandLinkedin/> &nbsp; Linkedin</Button>
+        <Button variant="gradient" sx={{width: '30%', height: '48px'}} gradient={{ from: 'black', to: 'gray', deg: 60 }}><IconBrandGithub/> &nbsp; Github</Button>
       </Group>
     </Container>
   )
