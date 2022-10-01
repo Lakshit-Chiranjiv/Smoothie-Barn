@@ -1,4 +1,5 @@
 import { Button, Container,Group,Image,Title } from '@mantine/core'
+import { Link } from 'react-router-dom'
 import heroImg1 from './../assets/hero.png'
 
 const HeroPage = () => {
@@ -17,20 +18,28 @@ const HeroPage = () => {
       {/* Not signed in */}
       <Group position='center' my={40}>
         <div style={{ width: '200px' }}>
-          <Button variant="gradient" fullWidth gradient={{ from: '#e89dff', to: '#a49dff', deg: 35 }}>Sign Up</Button>
+          <Link to='/signup' className='link'>
+            <Button variant="gradient" fullWidth gradient={{ from: '#e89dff', to: '#a49dff', deg: 35 }}>Sign Up</Button>
+          </Link>
         </div>
         <div style={{ width: '200px' }}>
-          <Button variant="gradient" fullWidth gradient={{ from: '#b4ff9d', to: '#ffb983', deg: 35 }}>Login</Button>
+          <Link to='/login' className='link'>
+            <Button variant="gradient" fullWidth gradient={{ from: '#b4ff9d', to: '#ffb983', deg: 35 }}>Login</Button>
+          </Link>
         </div>
       </Group>
 
       {/* signed in */}
       <Group position='center' my={40}>
         <div style={{ width: '200px' }}>
-          <Button variant="gradient" fullWidth gradient={{ from: '#e89dff', to: '#a49dff', deg: 35 }}>Smoothies</Button>
+          <Link to='/smoothies' className='link'>
+            <Button variant="gradient" fullWidth gradient={{ from: '#e89dff', to: '#a49dff', deg: 35 }}>Smoothies</Button>
+          </Link>
         </div>
         <div style={{ width: '200px' }}>
-          <Button variant="gradient" fullWidth gradient={{ from: '#b4ff9d', to: '#ffb983', deg: 35 }}>About Me</Button>
+          <Link to='/about' className='link'>
+            <Button variant="gradient" fullWidth gradient={{ from: '#b4ff9d', to: '#ffb983', deg: 35 }}>About Me</Button>
+          </Link>
         </div>
       </Group>
     </Container>
