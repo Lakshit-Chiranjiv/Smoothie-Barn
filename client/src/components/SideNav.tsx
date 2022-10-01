@@ -2,14 +2,20 @@ import { Avatar, Container, Group, Title } from '@mantine/core'
 import { IconCirclePlus, IconGlass, IconHome, IconLogin, IconLogout, IconQuestionMark, IconUserPlus } from '@tabler/icons'
 import NavbarLink from './NavbarLink'
 
-const SideNav = () => {
+type SideNavProps = {
+  setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const SideNav = ({setAddModalOpened}: SideNavProps) => {
   return (
     <Container className='sidenav' py={40} style={{ position: 'relative' }}>
 
       <Container p={0}>
         <NavbarLink linkLabel='Home' linkIcon={<IconHome/>} path='/'/>
         <NavbarLink linkLabel='Smoothies' linkIcon={<IconGlass/>} path='/smoothies'/>
-        <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/'/>
+        <a onClick={()=>setAddModalOpened(true)}>
+          <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/'/>
+        </a>
         <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>} path='/signup'/>
         <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>} path='login'/>
         <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>} path='/'/>
