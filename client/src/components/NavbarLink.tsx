@@ -1,17 +1,19 @@
 import React, { FC, ReactNode } from 'react'
 import { Container,Group,Image,Title,NavLink } from '@mantine/core'
 import { IconActivity,IconChevronRight, TablerIconProps } from '@tabler/icons'
+import { Link } from 'react-router-dom'
 
 type NavbarLinkProps = {
   linkLabel: string,
   active?: boolean,
   linkIcon: ReactNode,
+  path: string
 }
 
 
-const NavbarLink = ({linkLabel,active,linkIcon}: NavbarLinkProps) => {
+const NavbarLink = ({linkLabel,active,linkIcon,path}: NavbarLinkProps) => {
   return (
-    <Container mb={20}>
+    <Link to={path} style={{textDecoration: 'none'}}>
       <NavLink
         className='navlink'
         label={linkLabel}
@@ -20,8 +22,9 @@ const NavbarLink = ({linkLabel,active,linkIcon}: NavbarLinkProps) => {
         variant="filled"
         active
         color='green.3'
+        mb={20}
       />
-    </Container>
+    </Link>
   )
 }
 
