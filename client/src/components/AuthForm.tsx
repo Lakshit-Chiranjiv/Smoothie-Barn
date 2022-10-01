@@ -1,10 +1,16 @@
 import { Container, PasswordInput, TextInput,Button, Title, Group } from '@mantine/core'
+import { useState } from 'react'
 
 type AuthFormProps = {
     formFor: 'signup' | 'login'
 }
 
 const AuthForm = ({formFor}: AuthFormProps) => {
+
+  const [usernameInput,setUsernameInput] = useState('')
+  const [emailInput,setEmailInput] = useState('')
+  const [passwordInput,setPasswordInput] = useState('')
+
   return (
     <Container className='form' p={40}>
         <Group position='center'>
@@ -17,12 +23,16 @@ const AuthForm = ({formFor}: AuthFormProps) => {
             label="Username"
             withAsterisk
             mb={40}
+            value={usernameInput}
+            onChange={(e) => setUsernameInput(e.target.value)}
         />
         <TextInput
             placeholder="Your email"
             label="Email"
             withAsterisk
             mb={40}
+            value={emailInput}
+            onChange={(e) => setEmailInput(e.target.value)}
         />
         <PasswordInput
             placeholder="Password"
@@ -30,6 +40,8 @@ const AuthForm = ({formFor}: AuthFormProps) => {
             description="Password must include at least one letter, number and special character"
             withAsterisk
             mb={40}
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
         />
         <Button fullWidth variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
             {formFor === 'signup' ? 'Sign Up' : 'Login'}
