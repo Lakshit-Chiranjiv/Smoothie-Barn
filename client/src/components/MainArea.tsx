@@ -22,7 +22,7 @@ const MainArea = ({addModalOpened,setAddModalOpened}: MainAreaProps) => {
         <Route path='/' element={<HeroPage/>}/>
         <Route path='/signup' element={<AuthTabs/>}/>
         <Route path='/login' element={<AuthTabs/>}/>
-        <Route path='/smoothies' element={<SmoothiesList/>}/>
+        <Route path='/smoothies' element={<SmoothiesList setAddModalOpened={setAddModalOpened}/>}/>
         <Route path='/smoothies/:id' element={<SmoothieDetail/>}/>
         <Route path='/about' element={<AboutPage/>}/>
       </Routes>
