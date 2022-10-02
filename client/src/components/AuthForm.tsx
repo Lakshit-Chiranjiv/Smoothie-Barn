@@ -19,21 +19,41 @@ const AuthForm = ({formFor}: AuthFormProps) => {
 
   const navigate = useNavigate()
 
-  const authClickHandler = async(operation: 'signup' | 'login',dataBody: dataBodyType) => {
-    try {
-      const response = await axios.post(`http://localhost:8000/smoothiebarn/${operation}`,dataBody);
-      if(response.data.user)
-        navigate('/smoothies')
-      console.log(response)
-    } catch (error) {
-      navigate('/')
-      console.log(error)
-    }
-  }
-
   const [usernameInput,setUsernameInput] = useState("")
   const [emailInput,setEmailInput] = useState("")
   const [passwordInput,setPasswordInput] = useState("")
+
+  const [usernameError,setUsernameError] = useState("")
+  const [emailError,setEmailError] = useState("")
+  const [passwordError,setPasswordError] = useState("")
+
+  const authClickHandler = async(operation: 'signup' | 'login',dataBody: dataBodyType) => {
+    try {
+      setEmailError('')
+      setUsernameError('')
+      setPasswordError('')
+      setUsernameInput('')
+      setEmailInput('')
+      setPasswordInput('')
+      const response = await axios.post(`http://localhost:8000/smoothiebarn/${operation}`,dataBody);
+      if(response.data.user)
+        navigate('/smoothies')
+    } catch (error: any) {
+        const res = error.response.data 
+        if(res){
+          setEmailError(res.email)
+          setUsernameError(res.username)
+          setPasswordError(res.password)
+        }
+
+        setTimeout(()=>{
+          setEmailError('')
+          setUsernameError('')
+          setPasswordError('')
+        },5000)
+    }
+  }
+
 
   return (
     <Container className='form' p={40}>
@@ -49,6 +69,7 @@ const AuthForm = ({formFor}: AuthFormProps) => {
             mb={40}
             value={usernameInput}
             onChange={(e) => setUsernameInput(e.target.value)}
+            error={usernameError}
         />
         <TextInput
             placeholder="Your email"
@@ -57,6 +78,7 @@ const AuthForm = ({formFor}: AuthFormProps) => {
             mb={40}
             value={emailInput}
             onChange={(e) => setEmailInput(e.target.value)}
+            error={emailError}
         />
         <PasswordInput
             placeholder="Password"
@@ -66,6 +88,7 @@ const AuthForm = ({formFor}: AuthFormProps) => {
             mb={40}
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
+            error={passwordError}
         />
         <Button onClick={()=>{
           authClickHandler(formFor,{
