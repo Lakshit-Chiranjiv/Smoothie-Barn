@@ -1,15 +1,39 @@
 import { Container, PasswordInput, TextInput,Button, Title, Group } from '@mantine/core'
+import axios from 'axios'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 type AuthFormProps = {
     formFor: 'signup' | 'login'
 }
 
+type dataBodyType = {
+  email: string,
+  username: string,
+  password: string
+}
+
+
+
 const AuthForm = ({formFor}: AuthFormProps) => {
 
-  const [usernameInput,setUsernameInput] = useState('')
-  const [emailInput,setEmailInput] = useState('')
-  const [passwordInput,setPasswordInput] = useState('')
+  const navigate = useNavigate()
+
+  const authClickHandler = async(operation: 'signup' | 'login',dataBody: dataBodyType) => {
+    try {
+      const response = await axios.post(`http://localhost:8000/smoothiebarn/${operation}`,dataBody);
+      if(response.data.user)
+        navigate('/smoothies')
+      console.log(response)
+    } catch (error) {
+      navigate('/')
+      console.log(error)
+    }
+  }
+
+  const [usernameInput,setUsernameInput] = useState("")
+  const [emailInput,setEmailInput] = useState("")
+  const [passwordInput,setPasswordInput] = useState("")
 
   return (
     <Container className='form' p={40}>
@@ -43,7 +67,13 @@ const AuthForm = ({formFor}: AuthFormProps) => {
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
         />
-        <Button fullWidth variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
+        <Button onClick={()=>{
+          authClickHandler(formFor,{
+            email: emailInput,
+            username: usernameInput,
+            password: passwordInput
+          })
+        }} fullWidth variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
             {formFor === 'signup' ? 'Sign Up' : 'Login'}
         </Button>
     </Container>
