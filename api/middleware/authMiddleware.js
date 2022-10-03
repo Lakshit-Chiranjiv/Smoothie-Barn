@@ -7,7 +7,7 @@ const authCheck = (req,res,next) => {
         jwt.verify(token,'lakshit secret key',(err,decodedToken)=>{
             if(err){
                 console.log(err.message)
-                res.redirect('/smoothiebarn/login')
+                res.redirect('/login')
             }
             else{
                 console.log('decoded token : '+decodedToken)
@@ -16,7 +16,7 @@ const authCheck = (req,res,next) => {
         })
     }
     else
-        res.redirect('/smoothiebarn/login')
+        res.redirect('/login')
 }
 
 export default authCheck
