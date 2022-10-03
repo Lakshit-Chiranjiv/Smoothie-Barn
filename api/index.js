@@ -32,8 +32,8 @@ app.get('/',(req,res)=>{
     res.send('smoothie barn api')
 })
 
-app.use('/smoothiebarn',authRoutes)
-app.use('/smoothiebarn',authCheck,smoothieRoutes)
+app.use('/',authRoutes)
+app.use('/',authCheck,smoothieRoutes)
 
 
 
