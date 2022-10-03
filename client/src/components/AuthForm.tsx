@@ -1,4 +1,4 @@
-import { Container, PasswordInput, TextInput,Button, Title, Group } from '@mantine/core'
+import { Container, PasswordInput, TextInput,Button, Title, Group,Text } from '@mantine/core'
 import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -26,6 +26,8 @@ const AuthForm = ({formFor}: AuthFormProps) => {
   const [usernameError,setUsernameError] = useState("")
   const [emailError,setEmailError] = useState("")
   const [passwordError,setPasswordError] = useState("")
+
+  const [fieldError,setFieldError] = useState("")
 
   const authClickHandler = async(operation: 'signup' | 'login',dataBody: dataBodyType) => {
     try {
@@ -91,14 +93,28 @@ const AuthForm = ({formFor}: AuthFormProps) => {
             error={passwordError}
         />
         <Button onClick={()=>{
-          authClickHandler(formFor,{
-            email: emailInput,
-            username: usernameInput,
-            password: passwordInput
-          })
+          if(usernameInput && emailInput && passwordInput)
+            authClickHandler(formFor,{
+              email: emailInput,
+              username: usernameInput,
+              password: passwordInput
+            })
+          else{
+            setFieldError("Fill up all fields!")
+            setTimeout(()=>{
+              setFieldError("")
+            },4000)
+          }
         }} fullWidth variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
             {formFor === 'signup' ? 'Sign Up' : 'Login'}
         </Button>
+
+        {
+          fieldError &&
+          <Group position='center' my={8}>
+            <Text color='red' size='sm'>{fieldError}</Text>
+          </Group>
+        }
     </Container>
   )
 }
