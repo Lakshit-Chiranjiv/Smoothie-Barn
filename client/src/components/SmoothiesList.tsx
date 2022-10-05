@@ -1,4 +1,6 @@
 import { Button, Divider, Grid, Group, Title } from '@mantine/core'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import SmoothieCard from './SmoothieCard'
 
 type SmoothieListProps = {
@@ -6,6 +8,18 @@ type SmoothieListProps = {
 }
 
 const SmoothiesList = ({setAddModalOpened}: SmoothieListProps) => {
+
+  const [smoothies,setSmoothies] = useState([])
+
+  useEffect(() => {
+    const getSmoothies = async() => {
+      const data = await axios.get('http://localhost:8000/smoothies')
+      console.log(data)
+    }
+
+    getSmoothies()
+  },[])
+
   return (
     <>
       <Group position='apart' m={30}>
