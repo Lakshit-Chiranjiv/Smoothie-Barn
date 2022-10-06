@@ -7,8 +7,15 @@ import Footer from './components/Footer';
 import SideNav from './components/SideNav';
 import MainArea from './components/MainArea';
 
+type userStateType = {
+  email: string,
+  username: string,
+  token: string
+}
+
 export default function App() {
 
+  const [user,setUser] = useState<userStateType | null>(null)
   const [addModalOpened,setAddModalOpened] = useState(false)
   const [authTab,setAuthTab] = useState<'signup' | 'login'>('signup')
 
