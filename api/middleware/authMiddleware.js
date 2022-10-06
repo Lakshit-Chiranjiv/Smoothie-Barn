@@ -1,13 +1,17 @@
 import jwt from 'jsonwebtoken'
 
 const authCheck = (req,res,next) => {
-    const token = req.cookies.jwt
+    const { authorization } = req.headers
+
+    if(!authorization)
+        return res.status(401).json({ error: 'Authorization token is required' })
+
+    const token = authorization.split(' ')[1]
     if(token){
         jwt.verify(token,'lakshit secret key',(err,decodedToken)=>{
             if(err){
                 console.log(err.message)
-                // res.redirect('/login')
-                res.json({redirect: '/login'})
+                res.json({ error: 'Unauthorized Request', redirect: '/login' })
             }
             else{
                 console.log('decoded token : '+decodedToken)
@@ -17,7 +21,6 @@ const authCheck = (req,res,next) => {
     }
     else
         res.json({redirect: '/login'})
-        // res.redirect('/login')
 }
 
 export default authCheck
