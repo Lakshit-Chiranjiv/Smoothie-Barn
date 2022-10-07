@@ -42,9 +42,16 @@ const AuthForm = ({setUser,formFor}: AuthFormProps) => {
       const response = await axios.post(`http://localhost:8000/${operation}`,dataBody);
       if(response.data.userToken){
         localStorage.setItem('user', JSON.stringify(response.data))
+        const userSetter = {
+          email: response.data.userEmail,
+          username: response.data.userName,
+          token: response.data.userToken,
+        }
+        setUser(userSetter)
         navigate('/')
       }
     } catch (error: any) {
+        setUser(null)
         const res = error.response.data 
         if(res){
           setEmailError(res.email)
