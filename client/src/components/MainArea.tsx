@@ -7,9 +7,10 @@ import HeroPage from './HeroPage'
 import NotFound from './NotFound'
 import SmoothieDetail from './SmoothieDetail'
 import SmoothiesList from './SmoothiesList'
-
+import { userStateType } from './../lib/Types.js'
 
 type MainAreaProps = {
+  user: userStateType | null,
   addModalOpened: boolean,
   setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
   authTab: 'signup' | 'login',
