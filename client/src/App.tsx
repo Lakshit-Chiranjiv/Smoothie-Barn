@@ -8,9 +8,9 @@ import SideNav from './components/SideNav';
 import MainArea from './components/MainArea';
 
 type userStateType = {
-  email: string,
-  username: string,
-  token: string
+  email: string | undefined,
+  username: string | undefined,
+  token: string | undefined
 }
 
 type localUserType = {
