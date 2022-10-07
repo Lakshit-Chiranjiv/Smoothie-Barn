@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Grid, Group } from '@mantine/core';
 import HeroPage from './components/HeroPage';
 import Header from './components/Header';
@@ -13,11 +13,29 @@ type userStateType = {
   token: string
 }
 
+type localUserType = {
+  userEmail: string,
+  userName: string,
+  userToken: string
+}
+
 export default function App() {
 
   const [user,setUser] = useState<userStateType | null>(null)
   const [addModalOpened,setAddModalOpened] = useState(false)
   const [authTab,setAuthTab] = useState<'signup' | 'login'>('signup')
+
+  useEffect(() => {
+    const localUser = localStorage.getItem('user')
+    const localUserObj: localUserType | null = localUser ?  JSON.parse(localUser) : null
+    const userSetter = {
+      email: localUserObj?.userEmail,
+      username: localUserObj?.userName,
+      token: localUserObj?.userToken
+    }
+
+    setUser(userSetter)
+  },[])
 
   return (
     <>
@@ -42,3 +60,6 @@ export default function App() {
     </>
   );
 }
+
+
+// const user = JSON.parse(localStorage.getItem('user'))
