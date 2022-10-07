@@ -2,8 +2,10 @@ import { Container, PasswordInput, TextInput,Button, Title, Group,Text } from '@
 import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { userStateType } from '../lib/Types.js'
 
 type AuthFormProps = {
+    setUser: React.Dispatch<React.SetStateAction<userStateType | null>>,
     formFor: 'signup' | 'login'
 }
 
@@ -15,7 +17,7 @@ type dataBodyType = {
 
 
 
-const AuthForm = ({formFor}: AuthFormProps) => {
+const AuthForm = ({setUser,formFor}: AuthFormProps) => {
 
   const navigate = useNavigate()
 
