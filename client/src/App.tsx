@@ -29,11 +29,13 @@ export default function App() {
       token: localUserObj?.userToken
     }
 
-    setUser(userSetter)
+    if(localUser)
+      setUser(userSetter)
   },[])
 
   return (
     <>
+    <button onClick={()=>console.log(user)}>check</button>
       <Grid grow>
         <Grid.Col span={12}>
             <Header/>
