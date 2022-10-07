@@ -1,13 +1,7 @@
 import express from 'express'
-import { getSignupPage,getLoginPage,signupUser,loginUser,logoutUser } from './../controllers/authControllers.js'
+import { signupUser,loginUser,logoutUser } from './../controllers/authControllers.js'
 
 const router = express.Router()
-
-//sign up page
-router.get('/signup',getSignupPage)
-
-//login page
-router.get('/login',getLoginPage)
 
 //sign up new user
 router.post('/signup',signupUser)
