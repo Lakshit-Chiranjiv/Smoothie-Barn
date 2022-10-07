@@ -36,7 +36,6 @@ export default function App() {
 
   return (
     <>
-    <button onClick={()=>console.log(user)}>check</button>
       <Grid grow>
         <Grid.Col span={12}>
             <Header/>
