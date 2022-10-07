@@ -1,6 +1,12 @@
 import { Avatar, Group, Image, Text, Title, Card, Button } from '@mantine/core'
 
-const SmoothieCard = () => {
+type SmoothieCardProps = {
+    createdBy: string,
+    name: string,
+    price: number,
+}
+
+const SmoothieCard = ({createdBy,name,price}: SmoothieCardProps) => {
   return (
     <Card shadow="sm" p="lg" radius="md" my={20}>
       <Card.Section>
@@ -12,11 +18,11 @@ const SmoothieCard = () => {
       </Card.Section>
 
       <Group position="apart" mt="md" mb="xs">
-        <Title order={4} sx={{fontFamily: 'Poppins, sans-serif'}}>Smoothie Name</Title>
-        <Avatar src={null} alt="Vitaly Rtishchev" color="violet">VR</Avatar>
+        <Title order={4} sx={{fontFamily: 'Poppins, sans-serif'}}>{name}</Title>
+        <Avatar src={null} alt="Vitaly Rtishchev" color="violet">{createdBy[0].toUpperCase()}</Avatar>
       </Group>
 
-      <Text weight={600} color="green.6" sx={{fontFamily: 'Poppins, sans-serif'}}>̥₹ 800.00</Text>
+      <Text weight={600} color="green.6" sx={{fontFamily: 'Poppins, sans-serif'}}>̥₹ {price}</Text>
 
       <Button variant="light" color="pink" fullWidth mt="md" radius="md">
         Know More
