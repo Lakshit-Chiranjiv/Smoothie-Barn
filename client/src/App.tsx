@@ -32,7 +32,7 @@ export default function App() {
       }
       setUser(userSetter)
     }
-  },[])
+  },[user])
 
   return (
     <>
@@ -43,7 +43,7 @@ export default function App() {
       </Grid>
       <Grid grow>
         <Grid.Col span={3}>
-          <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab} user={user}/>
+          <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab} user={user} setUser={setUser}/>
         </Grid.Col>
         <Grid.Col span={9}>
           <MainArea user={user} setUser={setUser} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
