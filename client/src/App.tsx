@@ -6,12 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SideNav from './components/SideNav';
 import MainArea from './components/MainArea';
-
-type userStateType = {
-  email: string | undefined,
-  username: string | undefined,
-  token: string | undefined
-}
+import { userStateType } from './lib/Types.js'
 
 type localUserType = {
   userEmail: string,
@@ -49,7 +44,7 @@ export default function App() {
           <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab}/>
         </Grid.Col>
         <Grid.Col span={9}>
-          <MainArea addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
+          <MainArea user={user} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
         </Grid.Col>
       </Grid>
       <Grid grow>
