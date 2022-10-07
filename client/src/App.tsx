@@ -23,14 +23,15 @@ export default function App() {
   useEffect(() => {
     const localUser = localStorage.getItem('user')
     const localUserObj: localUserType | null = localUser ?  JSON.parse(localUser) : null
-    const userSetter = {
-      email: localUserObj?.userEmail,
-      username: localUserObj?.userName,
-      token: localUserObj?.userToken
-    }
 
-    if(localUser)
+    if(localUserObj){
+      const userSetter: userStateType = {
+        email: localUserObj?.userEmail!,
+        username: localUserObj?.userName!,
+        token: localUserObj?.userToken!
+      }
       setUser(userSetter)
+    }
   },[])
 
   return (
@@ -46,7 +47,7 @@ export default function App() {
           <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab}/>
         </Grid.Col>
         <Grid.Col span={9}>
-          <MainArea user={user} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
+          <MainArea user={user} setUser={setUser} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
         </Grid.Col>
       </Grid>
       <Grid grow>
