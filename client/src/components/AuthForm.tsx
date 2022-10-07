@@ -38,8 +38,10 @@ const AuthForm = ({formFor}: AuthFormProps) => {
       setEmailInput('')
       setPasswordInput('')
       const response = await axios.post(`http://localhost:8000/${operation}`,dataBody);
-      if(response.data.user)
+      if(response.data.userToken){
+        localStorage.setItem('user', JSON.stringify(response.data))
         navigate('/')
+      }
     } catch (error: any) {
         const res = error.response.data 
         if(res){
