@@ -1,15 +1,20 @@
 import { Avatar, Container, Group, Title } from '@mantine/core'
 import { IconCirclePlus, IconGlass, IconHome, IconLogin, IconLogout, IconQuestionMark, IconUserPlus } from '@tabler/icons'
+import { useNavigate } from 'react-router-dom'
 import { userStateType } from '../lib/Types.js'
 import NavbarLink from './NavbarLink'
 
 type SideNavProps = {
   setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
   setAuthTab: React.Dispatch<React.SetStateAction<"signup" | "login">>,
-  user: userStateType | null
+  user: userStateType | null,
+  setUser: React.Dispatch<React.SetStateAction<userStateType | null>>
 }
 
-const SideNav = ({setAddModalOpened,setAuthTab,user}: SideNavProps) => {
+const SideNav = ({setAddModalOpened,setAuthTab,user,setUser}: SideNavProps) => {
+
+  const navigate = useNavigate()
+
   return (
     <Container className='sidenav' py={40} style={{ position: 'relative' }}>
 
@@ -22,7 +27,13 @@ const SideNav = ({setAddModalOpened,setAuthTab,user}: SideNavProps) => {
             <a onClick={()=>setAddModalOpened(true)}>
               <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/'/>
             </a>
-            <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>} path='/'/>
+            <a onClick={()=>{
+              setUser(null)
+              localStorage.removeItem('user')
+              navigate('/')
+            }}>
+              <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>} path='/'/>
+            </a>
           </>
         }
         {
