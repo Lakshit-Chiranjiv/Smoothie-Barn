@@ -50,10 +50,13 @@ const SideNav = ({setAddModalOpened,setAuthTab,user,setUser}: SideNavProps) => {
         <NavbarLink linkLabel='About Me' linkIcon={<IconQuestionMark/>} path='/about'/>
       </Container>
 
-      <Group position='apart' color='blue' style={{ width: '90%', position: 'absolute', bottom: 30, backgroundColor: '#f8ceff', borderRadius: 10 }} p={12}>
-        <Avatar src={null} alt="Vitaly Rtishchev" color="violet">{user?.username[0].toUpperCase()}</Avatar>
-        <Title order={5}>{user?.username}</Title>
-      </Group>
+      {
+        user && 
+        <Group position='apart' color='blue' style={{ width: '90%', position: 'absolute', bottom: 30, backgroundColor: '#f8ceff', borderRadius: 10 }} p={12}>
+          <Avatar src={null} alt="Vitaly Rtishchev" color="violet">{user?.username[0].toUpperCase()}</Avatar>
+          <Title order={5}>{user?.username}</Title>
+        </Group>
+      }
     </Container>
   )
 }
