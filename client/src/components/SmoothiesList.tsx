@@ -9,9 +9,20 @@ type SmoothieListProps = {
   setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+type SmoothieProps = {
+    createdAt: string,
+    createdBy: string,
+    name: string,
+    price: number,
+    steps: string[],
+    updatedAt: string,
+    _v: number,
+    _id: string
+}
+
 const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
 
-  const [smoothies,setSmoothies] = useState([])
+  const [smoothies,setSmoothies] = useState<SmoothieProps[] | []>([])
 
   useEffect(() => {
     const getSmoothies = async() => {
@@ -20,6 +31,7 @@ const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
           'Authorization': `Bearer ${user?.token}`
         }
        })
+      console.log(smoothiesData.data.smoothies)
       setSmoothies(smoothiesData.data.smoothies)
     }
 
@@ -36,21 +48,15 @@ const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
       <Divider my="sm" />
 
       <Grid>
-        <Grid.Col span={4}>
-          <SmoothieCard/>
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <SmoothieCard/>
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <SmoothieCard/>
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <SmoothieCard/>
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <SmoothieCard/>
-        </Grid.Col>
+        {
+          smoothies.map((smoothie) => {
+            return (
+              <Grid.Col span={4}>
+                <SmoothieCard createdBy={smoothie.createdBy} name={smoothie.name} price={smoothie.price}/>
+              </Grid.Col>
+            )
+          })
+        }
       </Grid>
     </>
   )
