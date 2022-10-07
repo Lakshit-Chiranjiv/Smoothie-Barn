@@ -56,7 +56,7 @@ export const signupUser = async(req,res) => {
         })
 
         const token = createToken(user._id)
-        res.status(201).json({ user: user.email, token })
+        res.status(201).json({ userEmail: user.email, userName: user.username, userToken: token })
     } catch (error) {
         const errorsObj = handleErrors(error)
         res.status(400).json(errorsObj)
@@ -69,7 +69,7 @@ export const loginUser = async(req,res) => {
     try {
         const user = await UserModel.login(email,username,password)
         const token = createToken(user._id)
-        res.status(201).json({ user: user.email, token })
+        res.status(201).json({ userEmail: user.email, userName: user.username, userToken: token })
     } catch (error) {
         const errorsObj = handleErrors(error)
         res.status(400).json(errorsObj)
