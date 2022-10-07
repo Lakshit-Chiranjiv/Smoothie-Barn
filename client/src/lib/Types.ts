@@ -1,5 +1,5 @@
 export type userStateType = {
-    email: string | undefined,
-    username: string | undefined,
-    token: string | undefined
+    email: string,
+    username: string,
+    token: string
 }
