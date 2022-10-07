@@ -15,12 +15,12 @@ const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
 
   useEffect(() => {
     const getSmoothies = async() => {
-      const data = await axios.get('http://localhost:8000/smoothies', { 
+      const smoothiesData = await axios.get('http://localhost:8000/smoothies', { 
         headers: {
           'Authorization': `Bearer ${user?.token}`
         }
        })
-      console.log(data)
+      setSmoothies(smoothiesData.data.smoothies)
     }
 
     getSmoothies()
