@@ -1,19 +1,25 @@
 import { Button, Divider, Grid, Group, Title } from '@mantine/core'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { userStateType } from '../lib/Types.js'
 import SmoothieCard from './SmoothieCard'
 
 type SmoothieListProps = {
+  user: userStateType | null,
   setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const SmoothiesList = ({setAddModalOpened}: SmoothieListProps) => {
+const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
 
   const [smoothies,setSmoothies] = useState([])
 
   useEffect(() => {
     const getSmoothies = async() => {
-      const data = await axios.get('http://localhost:8000/smoothies')
+      const data = await axios.get('http://localhost:8000/smoothies', { 
+        headers: {
+          'Authorization': `Bearer ${user?.token}`
+        }
+       })
       console.log(data)
     }
 
