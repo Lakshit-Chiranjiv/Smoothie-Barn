@@ -1,6 +1,11 @@
 import { Avatar, Button, Container, Divider, Group, List, Title } from '@mantine/core'
 import { IconTrash } from '@tabler/icons'
 import React from 'react'
+import { userStateType } from '../lib/Types.js'
+
+type SmoothieDetailProps = {
+  user: userStateType | null,
+}
 
 const SmoothieDetail = () => {
   return (
