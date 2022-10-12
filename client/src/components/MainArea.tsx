@@ -28,7 +28,7 @@ const MainArea = ({user,setUser,addModalOpened,setAddModalOpened,authTab,setAuth
         <Route path='/signup' element={!user ? <AuthTabs authTab={authTab} setAuthTab={setAuthTab} setUser={setUser}/> : <Navigate to='/'/>}/>
         <Route path='/login' element={!user ? <AuthTabs authTab={authTab} setAuthTab={setAuthTab} setUser={setUser}/> : <Navigate to='/'/>}/>
         <Route path='/smoothies' element={user ? <SmoothiesList user={user} setAddModalOpened={setAddModalOpened}/> : <Navigate to='/'/>}/>
-        <Route path='/smoothies/:id' element={user ? <SmoothieDetail/> : <Navigate to='/'/>}/>
+        <Route path='/smoothies/:id' element={user ? <SmoothieDetail user={user}/> : <Navigate to='/'/>}/>
         <Route path='/about' element={<AboutPage/>}/>
       </Routes>
       {
