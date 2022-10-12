@@ -7,7 +7,7 @@ type SmoothieDetailProps = {
   user: userStateType | null,
 }
 
-const SmoothieDetail = () => {
+const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
   return (
     <Container>
       <Group position='apart' m={30}>
