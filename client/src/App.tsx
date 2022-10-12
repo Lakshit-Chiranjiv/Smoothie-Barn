@@ -59,4 +59,8 @@ export default function App() {
 }
 
 
-// const user = JSON.parse(localStorage.getItem('user'))
+//TODOS
+
+//personalized smoothies for users
+//smoothie details page
+//logout modal
