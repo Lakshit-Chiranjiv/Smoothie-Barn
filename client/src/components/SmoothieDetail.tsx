@@ -1,8 +1,9 @@
 import { Avatar, Button, Container, Divider, Group, List, Title } from '@mantine/core'
 import { IconTrash } from '@tabler/icons'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { userStateType } from '../lib/Types.js'
+import { SmoothieProps, userStateType } from '../lib/Types.js'
 
 type SmoothieDetailProps = {
   user: userStateType | null,
@@ -11,15 +12,29 @@ type SmoothieDetailProps = {
 const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
 
   const { id } = useParams()
+
+  const [smoothie,setSmoothie] = useState<SmoothieProps | null>(null)
+
+  useEffect(() => {
+    const fetchSmoothieData = async() => {
+      const smoothieData = await axios.get(`http://localhost:8000/smoothies/${id}`, { 
+        headers: {
+          'Authorization': `Bearer ${user?.token}`
+        }
+       })
+      console.log(smoothieData.data.smoothies)
+      setSmoothie(smoothieData.data.smoothies)
+    }
+  },[])
   
   return (
     <Container>
       <Group position='apart' m={30}>
-        <Title order={2} sx={{ fontFamily: 'Poppins, sans-serif' }}>Smoothie Name</Title>
+        <Title order={2} sx={{ fontFamily: 'Poppins, sans-serif' }}>{smoothie?.name}</Title>
         {/* if current user is the smoothie creator then show delete else buy */}
         {
           user ? 
-          <Button variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }}>Buy : ₹ 800</Button> :
+          <Button variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }}>Buy : ₹ {smoothie?.price}</Button> :
           <Button variant="gradient" gradient={{ from: 'red', to: 'orange', deg: 60 }}>
             <IconTrash/>
           </Button>
@@ -41,12 +56,12 @@ const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
 
       <Group>
         <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'orange', to: 'yellow', deg: 75 }}>Back</Button>
-        <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'green', to: 'blue', deg: 75 }}>Buy Smoothie name for ₹ 800</Button>
+        <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'green', to: 'blue', deg: 75 }}>Buy {smoothie?.name} for ₹ {smoothie?.price}</Button>
       </Group>
     
       <Group position='apart' sx={{ backgroundColor: '#c7fff2', borderRadius: 12 }} mt={64} p={12}>
-        <Avatar src={null} alt="Vitaly Rtishchev" color="violet">VR</Avatar>
-        <Title order={5}>Created by Vitaly Rtishchev</Title>
+        <Avatar src={null} alt="Vitaly Rtishchev" color="violet">{smoothie?.createdBy[0]}</Avatar>
+        <Title order={5}>Created by {smoothie?.createdBy}</Title>
       </Group>
     </Container>
   )
