@@ -40,7 +40,7 @@ export const getSingleSmoothie = async(req,res) => {
     const { id } = req.params;
     try {
         const smoothie = await SmoothieModel.findById(id);
-        if(!smoothie) throw Error('could not find pokemon');
+        if(!smoothie) throw Error('could not find smoothie');
         const user = res.locals.user
         const sendRes = {
             smoothie: smoothie,
