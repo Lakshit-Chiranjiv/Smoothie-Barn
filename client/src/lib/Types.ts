@@ -4,7 +4,7 @@ export type userStateType = {
     token: string
 }
 
-type SmoothieProps = {
+export type SmoothieProps = {
     createdAt: string,
     createdBy: string,
     name: string,
