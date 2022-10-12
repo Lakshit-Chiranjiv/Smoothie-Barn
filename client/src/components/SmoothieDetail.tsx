@@ -13,10 +13,13 @@ const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
       <Group position='apart' m={30}>
         <Title order={2} sx={{ fontFamily: 'Poppins, sans-serif' }}>Smoothie Name</Title>
         {/* if current user is the smoothie creator then show delete else buy */}
-        <Button variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }}>Buy : ₹ 800</Button>
-        <Button variant="gradient" gradient={{ from: 'red', to: 'orange', deg: 60 }}>
-          <IconTrash/>
-        </Button>
+        {
+          user ? 
+          <Button variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }}>Buy : ₹ 800</Button> :
+          <Button variant="gradient" gradient={{ from: 'red', to: 'orange', deg: 60 }}>
+            <IconTrash/>
+          </Button>
+        }
       </Group>
 
       <Divider my="sm" />
