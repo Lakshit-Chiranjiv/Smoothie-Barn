@@ -1,6 +1,7 @@
 import { Avatar, Button, Container, Divider, Group, List, Title } from '@mantine/core'
 import { IconTrash } from '@tabler/icons'
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { userStateType } from '../lib/Types.js'
 
 type SmoothieDetailProps = {
@@ -8,6 +9,9 @@ type SmoothieDetailProps = {
 }
 
 const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
+
+  const { id } = useParams()
+  
   return (
     <Container>
       <Group position='apart' m={30}>
