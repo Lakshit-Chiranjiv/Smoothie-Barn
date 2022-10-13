@@ -1,6 +1,7 @@
 import { Button, Modal, NumberInput, Textarea, TextInput, Title } from '@mantine/core'
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { userStateType } from '../lib/Types.js'
 
 type AddSmoothieProps = {
@@ -10,6 +11,8 @@ type AddSmoothieProps = {
 }
 
 const AddSmoothie = ({user,addModalOpened,setAddModalOpened}: AddSmoothieProps) => {
+
+  const navigate = useNavigate()
 
   const [smoothieName,setSmoothieName] = useState('')
   const [smoothiePrice,setSmoothiePrice] = useState(0)
@@ -30,6 +33,7 @@ const AddSmoothie = ({user,addModalOpened,setAddModalOpened}: AddSmoothieProps) 
     setSmoothieName('')
     setSmoothiePrice(0)
     setSmoothieSteps([])
+    navigate('/')
   }
   return (
     <Modal withCloseButton={false} opened={addModalOpened} onClose={() => setAddModalOpened(false)}>
