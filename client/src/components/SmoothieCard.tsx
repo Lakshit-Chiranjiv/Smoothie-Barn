@@ -1,4 +1,5 @@
 import { Avatar, Group, Image, Text, Title, Card, Button } from '@mantine/core'
+import { Link } from 'react-router-dom'
 
 type SmoothieCardProps = {
     smoothieId: string,
@@ -25,9 +26,11 @@ const SmoothieCard = ({smoothieId,createdBy,name,price}: SmoothieCardProps) => {
 
       <Text weight={600} color="green.6" sx={{fontFamily: 'Poppins, sans-serif'}}>̥₹ {price}</Text>
 
-      <Button variant="light" color="pink" fullWidth mt="md" radius="md">
-        Know More
-      </Button>
+      <Link to={`/smoothies/${smoothieId}`} className='link'>
+        <Button variant="light" color="pink" fullWidth mt="md" radius="md">
+          Know More
+        </Button>
+      </Link>
     </Card>
   )
 }
