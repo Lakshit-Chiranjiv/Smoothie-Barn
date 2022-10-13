@@ -32,7 +32,7 @@ export default function App() {
       }
       setUser(userSetter)
     }
-  },[user])
+  },[])
 
   return (
     <>
