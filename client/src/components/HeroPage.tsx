@@ -4,10 +4,11 @@ import { userStateType } from '../lib/Types.js'
 import heroImg1 from './../assets/hero.png'
 
 type HeroPageProps = {
-  user: userStateType | null
+  user: userStateType | null,
+  setAuthTab: React.Dispatch<React.SetStateAction<"signup" | "login">>,
 }
 
-const HeroPage = ({ user }: HeroPageProps) => {
+const HeroPage = ({ user,setAuthTab }: HeroPageProps) => {
   return (
     <Container className='hero' fluid>
       <div style={{ width: 360, marginLeft: 'auto', marginRight: 'auto' }}>
