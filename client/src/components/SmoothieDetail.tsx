@@ -2,7 +2,7 @@ import { Avatar, Button, Container, Divider, Group, List, Title } from '@mantine
 import { IconTrash } from '@tabler/icons'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { SmoothieProps, userStateType } from '../lib/Types.js'
 
 type SmoothieDetailProps = {
@@ -12,6 +12,8 @@ type SmoothieDetailProps = {
 const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
 
   const { id } = useParams()
+
+  const navigate = useNavigate()
 
   const [smoothie,setSmoothie] = useState<SmoothieProps | null>(null)
 
@@ -56,7 +58,7 @@ const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
       </Container>
 
       <Group>
-        <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'orange', to: 'yellow', deg: 75 }}>Back</Button>
+        <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'orange', to: 'yellow', deg: 75 }} onClick={()=>navigate(-1)}>Back</Button>
         <Button variant="gradient" sx={{width: '49%'}} my={24} gradient={{ from: 'green', to: 'blue', deg: 75 }}>Buy {smoothie?.name} for ₹ {smoothie?.price}</Button>
       </Group>
     
