@@ -1,16 +1,36 @@
 import { Button, Modal, NumberInput, Textarea, TextInput, Title } from '@mantine/core'
+import axios from 'axios'
 import React, { useState } from 'react'
+import { userStateType } from '../lib/Types.js'
 
 type AddSmoothieProps = {
+    user: userStateType | null,
     addModalOpened: boolean,
     setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const AddSmoothie = ({addModalOpened,setAddModalOpened}: AddSmoothieProps) => {
+const AddSmoothie = ({user,addModalOpened,setAddModalOpened}: AddSmoothieProps) => {
 
   const [smoothieName,setSmoothieName] = useState('')
   const [smoothiePrice,setSmoothiePrice] = useState(0)
   const [smoothieSteps,setSmoothieSteps] = useState<string[]>([])
+
+  const postSmoothieData = async() => {
+    const smoothieData = await axios.post(`http://localhost:8000/${user?.username}/addsmoothie/`, {
+      name: smoothieName,
+      price: smoothiePrice,
+      steps: smoothieSteps,
+      createdBy: user?.username
+    }, { 
+      headers: {
+        'Authorization': `Bearer ${user?.token}`
+      }
+     })
+    console.log(smoothieData)
+    setSmoothieName('')
+    setSmoothiePrice(0)
+    setSmoothieSteps([])
+  }
   return (
     <Modal withCloseButton={false} opened={addModalOpened} onClose={() => setAddModalOpened(false)}>
       <Title order={2} mb={30}>Add a Smoothie</Title>
@@ -33,13 +53,17 @@ const AddSmoothie = ({addModalOpened,setAddModalOpened}: AddSmoothieProps) => {
         onChange={(num)=>setSmoothiePrice(num?num:0)}
       />
       <Textarea
-        placeholder="Put a full stop after each step"
+        placeholder="Put a comma after each step"
         label="Steps"
         mb={20}
         value={smoothieSteps.join()}
-        onChange={(e)=>setSmoothieSteps(e.target.value.split('.'))}
+        onChange={(e)=>setSmoothieSteps(e.target.value.split(','))}
       />
-      <Button fullWidth variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }}>Add Smoothie</Button>
+      <Button fullWidth variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }} onClick={()=>{
+        if(smoothieName && smoothiePrice){
+          postSmoothieData()
+        }
+      }}>Add Smoothie</Button>
     </Modal>
   )
 }
