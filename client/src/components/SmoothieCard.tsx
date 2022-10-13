@@ -1,12 +1,13 @@
 import { Avatar, Group, Image, Text, Title, Card, Button } from '@mantine/core'
 
 type SmoothieCardProps = {
+    smoothieId: string,
     createdBy: string,
     name: string,
     price: number,
 }
 
-const SmoothieCard = ({createdBy,name,price}: SmoothieCardProps) => {
+const SmoothieCard = ({smoothieId,createdBy,name,price}: SmoothieCardProps) => {
   return (
     <Card shadow="sm" p="lg" radius="md" my={20}>
       <Card.Section>
