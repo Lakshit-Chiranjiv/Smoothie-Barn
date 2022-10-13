@@ -17,14 +17,15 @@ const SmoothieDetail = ({ user }: SmoothieDetailProps) => {
 
   useEffect(() => {
     const fetchSmoothieData = async() => {
-      const smoothieData = await axios.get(`http://localhost:8000/smoothies/${id}`, { 
+      const smoothieData = await axios.get(`http://localhost:8000/smoothie/${id}`, { 
         headers: {
           'Authorization': `Bearer ${user?.token}`
         }
        })
-      console.log(smoothieData.data.smoothies)
-      setSmoothie(smoothieData.data.smoothies)
+      setSmoothie(smoothieData.data.smoothie)
     }
+
+    fetchSmoothieData()
   },[])
   
   return (
