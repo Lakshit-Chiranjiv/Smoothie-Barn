@@ -33,7 +33,7 @@ const MainArea = ({user,setUser,addModalOpened,setAddModalOpened,authTab,setAuth
       </Routes>
       {
         user &&
-        <AddSmoothie addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
+        <AddSmoothie user={user} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened}/>
       }
     </Container>
   )
