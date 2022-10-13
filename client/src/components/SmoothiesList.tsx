@@ -41,7 +41,7 @@ const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
           smoothies.map((smoothie) => {
             return (
               <Grid.Col span={4}>
-                <SmoothieCard createdBy={smoothie.createdBy} name={smoothie.name} price={smoothie.price}/>
+                <SmoothieCard smoothieId={smoothie._id} createdBy={smoothie.createdBy} name={smoothie.name} price={smoothie.price}/>
               </Grid.Col>
             )
           })
