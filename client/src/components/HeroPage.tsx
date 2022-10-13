@@ -26,12 +26,12 @@ const HeroPage = ({ user,setAuthTab }: HeroPageProps) => {
         !user && 
         <Group position='center' my={40}>
           <div style={{ width: '200px' }}>
-            <Link to='/signup' className='link'>
+            <Link to='/signup' className='link' onClick={()=>setAuthTab('signup')}>
               <Button variant="gradient" fullWidth gradient={{ from: '#e89dff', to: '#a49dff', deg: 35 }}>Sign Up</Button>
             </Link>
           </div>
           <div style={{ width: '200px' }}>
-            <Link to='/login' className='link'>
+            <Link to='/login' className='link' onClick={()=>setAuthTab('login')}>
               <Button variant="gradient" fullWidth gradient={{ from: '#b4ff9d', to: '#ffb983', deg: 35 }}>Login</Button>
             </Link>
           </div>
