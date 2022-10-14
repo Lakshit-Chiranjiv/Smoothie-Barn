@@ -6,9 +6,10 @@ import heroImg1 from './../assets/hero.png'
 type HeroPageProps = {
   user: userStateType | null,
   setAuthTab: React.Dispatch<React.SetStateAction<"signup" | "login">>,
+  setUserSpecificSmoothies: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const HeroPage = ({ user,setAuthTab }: HeroPageProps) => {
+const HeroPage = ({ user,setAuthTab,setUserSpecificSmoothies }: HeroPageProps) => {
   return (
     <Container className='hero' fluid>
       <div style={{ width: 360, marginLeft: 'auto', marginRight: 'auto' }}>
