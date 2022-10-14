@@ -31,7 +31,7 @@ const SmoothiesList = ({user,setAddModalOpened,userSpecificSmoothies}: SmoothieL
     }
 
     getSmoothies()
-  },[])
+  },[userSpecificSmoothies])
 
   return (
     <>
