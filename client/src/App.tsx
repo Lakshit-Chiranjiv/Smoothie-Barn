@@ -19,6 +19,7 @@ export default function App() {
   const [user,setUser] = useState<userStateType | null>(null)
   const [addModalOpened,setAddModalOpened] = useState(false)
   const [authTab,setAuthTab] = useState<'signup' | 'login'>('signup')
+  const [userSpecificSmoothies,setUserSpecificSmoothies] = useState(false)
 
   useEffect(() => {
     const localUser = localStorage.getItem('user')
@@ -62,5 +63,4 @@ export default function App() {
 //TODOS
 
 //personalized smoothies for users
-//smoothie details page
 //logout modal
