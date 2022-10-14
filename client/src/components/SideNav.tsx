@@ -1,5 +1,5 @@
 import { Avatar, Container, Group, Title } from '@mantine/core'
-import { IconCirclePlus, IconGlass, IconHome, IconLogin, IconLogout, IconQuestionMark, IconUserPlus } from '@tabler/icons'
+import { IconCirclePlus, IconGlass, IconGlassFull, IconHome, IconLogin, IconLogout, IconQuestionMark, IconUserPlus } from '@tabler/icons'
 import { useNavigate } from 'react-router-dom'
 import { userStateType } from '../lib/Types.js'
 import NavbarLink from './NavbarLink'
@@ -8,10 +8,11 @@ type SideNavProps = {
   setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
   setAuthTab: React.Dispatch<React.SetStateAction<"signup" | "login">>,
   user: userStateType | null,
-  setUser: React.Dispatch<React.SetStateAction<userStateType | null>>
+  setUser: React.Dispatch<React.SetStateAction<userStateType | null>>,
+  setUserSpecificSmoothies: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const SideNav = ({setAddModalOpened,setAuthTab,user,setUser}: SideNavProps) => {
+const SideNav = ({setAddModalOpened,setAuthTab,user,setUser,setUserSpecificSmoothies}: SideNavProps) => {
 
   const navigate = useNavigate()
 
@@ -23,7 +24,12 @@ const SideNav = ({setAddModalOpened,setAuthTab,user,setUser}: SideNavProps) => {
         {
           user &&
           <>
-            <NavbarLink linkLabel='Smoothies' linkIcon={<IconGlass/>} path='/smoothies'/>
+            <a onClick={()=>setUserSpecificSmoothies(false)}>
+              <NavbarLink linkLabel='All Smoothies' linkIcon={<IconGlassFull/>} path='/smoothies'/>
+            </a>
+            <a onClick={()=>setUserSpecificSmoothies(true)}>
+              <NavbarLink linkLabel='My Smoothies' linkIcon={<IconGlass/>} path='/smoothies'/>
+            </a>
             <a onClick={()=>setAddModalOpened(true)}>
               <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/'/>
             </a>
