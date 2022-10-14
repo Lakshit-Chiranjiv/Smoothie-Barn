@@ -23,7 +23,7 @@ const SmoothiesList = ({user,setAddModalOpened,userSpecificSmoothies}: SmoothieL
        })
       
       if(userSpecificSmoothies){
-        const filteredSmoothies = smoothiesData.data.smoothies.map((sm: SmoothieProps) => sm.createdBy===user?.username) 
+        const filteredSmoothies = smoothiesData.data.smoothies.filter((sm: SmoothieProps) => sm.createdBy===user?.username) 
         setSmoothies(filteredSmoothies)
       }
       else
