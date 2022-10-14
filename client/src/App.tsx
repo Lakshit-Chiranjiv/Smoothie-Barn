@@ -44,7 +44,7 @@ export default function App() {
       </Grid>
       <Grid grow>
         <Grid.Col span={3}>
-          <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab} user={user} setUser={setUser}/>
+          <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab} user={user} setUser={setUser} setUserSpecificSmoothies={setUserSpecificSmoothies}/>
         </Grid.Col>
         <Grid.Col span={9}>
           <MainArea user={user} setUser={setUser} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
