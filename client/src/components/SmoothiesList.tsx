@@ -47,7 +47,7 @@ const SmoothiesList = ({user,setAddModalOpened,userSpecificSmoothies}: SmoothieL
           smoothies.map((smoothie) => {
             return (
               <Grid.Col span={4}>
-                <SmoothieCard smoothieId={smoothie._id} createdBy={smoothie.createdBy} name={smoothie.name} price={smoothie.price}/>
+                <SmoothieCard key={smoothie._id} smoothieId={smoothie._id} createdBy={smoothie.createdBy} name={smoothie.name} price={smoothie.price}/>
               </Grid.Col>
             )
           })
