@@ -47,7 +47,7 @@ export default function App() {
           <SideNav setAddModalOpened={setAddModalOpened} setAuthTab={setAuthTab} user={user} setUser={setUser} setUserSpecificSmoothies={setUserSpecificSmoothies}/>
         </Grid.Col>
         <Grid.Col span={9}>
-          <MainArea user={user} setUser={setUser} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab}/>
+          <MainArea user={user} setUser={setUser} addModalOpened={addModalOpened} setAddModalOpened={setAddModalOpened} authTab={authTab} setAuthTab={setAuthTab} userSpecificSmoothies={userSpecificSmoothies} setUserSpecificSmoothies={setUserSpecificSmoothies}/>
         </Grid.Col>
       </Grid>
       <Grid grow>
