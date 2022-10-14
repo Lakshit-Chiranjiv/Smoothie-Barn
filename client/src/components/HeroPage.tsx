@@ -44,7 +44,7 @@ const HeroPage = ({ user,setAuthTab,setUserSpecificSmoothies }: HeroPageProps) =
         user && 
         <Group position='center' my={40}>
           <div style={{ width: '200px' }}>
-            <Link to='/smoothies' className='link'>
+            <Link to='/smoothies' className='link' onClick={()=>setUserSpecificSmoothies(false)}>
               <Button variant="gradient" fullWidth gradient={{ from: '#e89dff', to: '#a49dff', deg: 35 }}>Smoothies</Button>
             </Link>
           </div>
