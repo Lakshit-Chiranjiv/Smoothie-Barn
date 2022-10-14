@@ -15,7 +15,9 @@ type MainAreaProps = {
   addModalOpened: boolean,
   setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
   authTab: 'signup' | 'login',
-  setAuthTab: React.Dispatch<React.SetStateAction<"signup" | "login">>
+  setAuthTab: React.Dispatch<React.SetStateAction<"signup" | "login">>,
+  userSpecificSmoothies: boolean,
+  setUserSpecificSmoothies: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const MainArea = ({user,setUser,addModalOpened,setAddModalOpened,authTab,setAuthTab}: MainAreaProps) => {
