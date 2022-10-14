@@ -10,7 +10,7 @@ type SmoothieListProps = {
   userSpecificSmoothies: boolean
 }
 
-const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
+const SmoothiesList = ({user,setAddModalOpened,userSpecificSmoothies}: SmoothieListProps) => {
 
   const [smoothies,setSmoothies] = useState<SmoothieProps[] | []>([])
 
@@ -21,8 +21,13 @@ const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
           'Authorization': `Bearer ${user?.token}`
         }
        })
-      console.log(smoothiesData.data.smoothies)
-      setSmoothies(smoothiesData.data.smoothies)
+      
+      if(userSpecificSmoothies){
+        const filteredSmoothies = smoothiesData.data.smoothies.map((sm: SmoothieProps) => sm.createdBy===user?.username) 
+        setSmoothies(filteredSmoothies)
+      }
+      else
+        setSmoothies(smoothiesData.data.smoothies)
     }
 
     getSmoothies()
