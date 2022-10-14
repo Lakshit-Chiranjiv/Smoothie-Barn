@@ -6,7 +6,8 @@ import SmoothieCard from './SmoothieCard'
 
 type SmoothieListProps = {
   user: userStateType | null,
-  setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>
+  setAddModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
+  userSpecificSmoothies: boolean
 }
 
 const SmoothiesList = ({user,setAddModalOpened}: SmoothieListProps) => {
