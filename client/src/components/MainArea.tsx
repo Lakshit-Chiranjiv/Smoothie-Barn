@@ -24,7 +24,6 @@ const MainArea = ({user,setUser,addModalOpened,setAddModalOpened,authTab,setAuth
 
   return (
     <Container className='mainarea'>
-      <button onClick={()=>console.log(user)}>check user</button>
       <Routes>
         <Route path='*' element={<NotFound/>}/>
         <Route path='/' element={<HeroPage user={user} setAuthTab={setAuthTab} setUserSpecificSmoothies={setUserSpecificSmoothies}/>}/>
