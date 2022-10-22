@@ -1,7 +1,6 @@
 import './App.css'
 import { useEffect, useState } from 'react';
-import { Grid, Group } from '@mantine/core';
-import HeroPage from './components/HeroPage';
+import { Grid } from '@mantine/core';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SideNav from './components/SideNav';
