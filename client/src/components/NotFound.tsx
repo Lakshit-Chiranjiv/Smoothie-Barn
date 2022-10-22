@@ -1,10 +1,6 @@
 import { Button, Container, Group, Title } from '@mantine/core'
-import { IconHome } from '@tabler/icons'
-import React from 'react'
 
-type Props = {}
-
-const NotFound = (props: Props) => {
+const NotFound = () => {
   return (
     <Container my={70}>
       <Group position='center' my={40}>
