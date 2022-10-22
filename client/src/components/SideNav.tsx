@@ -24,33 +24,25 @@ const SideNav = ({setAddModalOpened,setAuthTab,user,setUser,setUserSpecificSmoot
         {
           user &&
           <>
-            <a onClick={()=>setUserSpecificSmoothies(false)}>
-              <NavbarLink linkLabel='All Smoothies' linkIcon={<IconGlassFull/>} path='/smoothies'/>
-            </a>
-            <a onClick={()=>setUserSpecificSmoothies(true)}>
-              <NavbarLink linkLabel='My Smoothies' linkIcon={<IconGlass/>} path='/smoothies'/>
-            </a>
-            <a onClick={()=>setAddModalOpened(true)}>
-              <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/'/>
-            </a>
-            <a onClick={()=>{
-              setUser(null)
-              localStorage.removeItem('user')
-              navigate('/')
-            }}>
-              <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>} path='/'/>
-            </a>
+            <NavbarLink linkLabel='All Smoothies' linkIcon={<IconGlassFull/>} path='/smoothies' clickHandler={()=>setUserSpecificSmoothies(false)}/>
+
+            <NavbarLink linkLabel='My Smoothies' linkIcon={<IconGlass/>} path='/smoothies' clickHandler={()=>setUserSpecificSmoothies(true)}/>
+
+            <NavbarLink linkLabel='Add Smoothie' linkIcon={<IconCirclePlus/>} path='/' clickHandler={()=>setAddModalOpened(true)}/>
+
+            <NavbarLink linkLabel='Log out' linkIcon={<IconLogout/>} path='/' clickHandler={()=>{
+            setUser(null)
+            localStorage.removeItem('user')
+            navigate('/')
+            }}/>
           </>
         }
         {
           !user &&
           <>
-            <a onClick={()=>setAuthTab('signup')}>
-              <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>} path='/signup'/>
-            </a>
-            <a onClick={()=>setAuthTab('login')}>
-              <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>} path='login'/>
-            </a>
+            <NavbarLink linkLabel='Sign Up' linkIcon={<IconUserPlus/>} path='/signup' clickHandler={()=>setAuthTab('signup')}/>
+
+            <NavbarLink linkLabel='Log in' linkIcon={<IconLogin/>} path='login' clickHandler={()=>setAuthTab('login')}/>
           </>
         }
         <NavbarLink linkLabel='About Me' linkIcon={<IconQuestionMark/>} path='/about'/>
