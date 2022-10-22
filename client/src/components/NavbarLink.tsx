@@ -7,11 +7,12 @@ type NavbarLinkProps = {
   linkLabel: string,
   active?: boolean,
   linkIcon: ReactNode,
-  path: string
+  path: string,
+  clickHandler?: () => void
 }
 
 
-const NavbarLink = ({linkLabel,active,linkIcon,path}: NavbarLinkProps) => {
+const NavbarLink = ({linkLabel,active,linkIcon,path,clickHandler}: NavbarLinkProps) => {
   return (
     <Link to={path} className='link'>
       <NavLink
@@ -23,6 +24,7 @@ const NavbarLink = ({linkLabel,active,linkIcon,path}: NavbarLinkProps) => {
         active
         color='green.3'
         mb={20}
+        onClick={clickHandler?clickHandler:()=>{}}
       />
     </Link>
   )
