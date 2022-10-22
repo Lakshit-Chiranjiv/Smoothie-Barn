@@ -24,12 +24,13 @@ const MainArea = ({user,setUser,addModalOpened,setAddModalOpened,authTab,setAuth
 
   return (
     <Container className='mainarea'>
+      <button onClick={()=>console.log(user)}>check user</button>
       <Routes>
         <Route path='*' element={<NotFound/>}/>
         <Route path='/' element={<HeroPage user={user} setAuthTab={setAuthTab} setUserSpecificSmoothies={setUserSpecificSmoothies}/>}/>
         <Route path='/signup' element={!user ? <AuthTabs authTab={authTab} setAuthTab={setAuthTab} setUser={setUser}/> : <Navigate to='/'/>}/>
         <Route path='/login' element={!user ? <AuthTabs authTab={authTab} setAuthTab={setAuthTab} setUser={setUser}/> : <Navigate to='/'/>}/>
-        <Route path='/smoothies' element={user ? <SmoothiesList user={user} setAddModalOpened={setAddModalOpened} userSpecificSmoothies={userSpecificSmoothies}/> : <Navigate to='/'/>}/>
+        <Route path='/smoothies' element={user ? <SmoothiesList user={user} setUser={setUser} setAddModalOpened={setAddModalOpened} userSpecificSmoothies={userSpecificSmoothies}/> : <Navigate to='/'/>}/>
         <Route path='/smoothies/:id' element={user ? <SmoothieDetail user={user}/> : <Navigate to='/'/>}/>
         <Route path='/about' element={<AboutPage/>}/>
       </Routes>
